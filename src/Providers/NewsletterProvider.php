@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundmanis\Laracms\Modules\Banners\Providers;
+namespace Grundmanis\Laracms\Modules\Newsletter\Providers;
 
 use Grundmanis\Laracms\Modules\Pages\Exception\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;

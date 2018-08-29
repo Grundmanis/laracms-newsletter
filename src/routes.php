@@ -6,4 +6,5 @@ Route::group([
     'prefix'     => 'laracms/newsletter/'
 ], function () {
     Route::get('/', 'NewsletterController@index')->name('laracms.newsletter');
+    Route::post('/', 'NewsletterController@send');
 });
