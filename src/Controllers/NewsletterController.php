@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends Controller
 {
-
     /**
      * @var User
      */
@@ -39,9 +38,22 @@ class NewsletterController extends Controller
      */
     public function send(Request $request)
     {
-        $users = $this->user->where('seller', $request->to == 'sellers')->get()->pluck('email');
+        if ($request->to == 'sellers') {
+            $users = $this->user->has('shops')->get()->pluck('email');
+        }
+        else if ($request->to == 'buyers') {
+            $users = $this->user->doesntHave('shops')->get()->pluck('email');
+        } else {
+            $users = $this->user->get()->pluck('email');
+        }
 
-        Mail::to($users)->send(new NewsletterMail($request->message, $request->subject));
+        if (empty($users)) {
+            return redirect()->back()->with('status', 'No users');
+        }
+
+        foreach ($users as $user) {
+            Mail::to($user)->send(new NewsletterMail($request->message, $request->subject));
+        }
 
         return redirect()->back()->with('status', 'E-mail was sent!');
     }

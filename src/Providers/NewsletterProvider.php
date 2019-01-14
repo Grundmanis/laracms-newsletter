@@ -35,7 +35,7 @@ class NewsletterProvider extends ServiceProvider
     private function addMenuRoutes()
     {
         $menu = [
-            'Newsletter' => 'laracms.newsletter',
+            'admin.menu.newsletter' => 'laracms.newsletter',
         ];
 
         MenuFacade::addMenu($menu);

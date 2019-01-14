@@ -12,6 +12,7 @@
                 <select class="form-control" name="to" id="to">
                     <option value="buyers">Buyers</option>
                     <option value="sellers">Sellers</option>
+                    <option value="all">All</option>
                 </select>
             </div>
         </div>
