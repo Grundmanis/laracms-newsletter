@@ -1,4 +1,4 @@
-@extends('laracms.dashboard::layouts.app', ['page' => 'Create a Newsletter'])
+@extends('laracms.dashboard::layouts.app', ['page' => __('texts.create_newsletter')])
 
 @include('laracms.dashboard::partials.summernote')
 
@@ -10,9 +10,9 @@
             <label for="to" class="col-md-4 col-form-label text-md-right">{{ __('form.to') }}</label>
             <div class="col-md-6">
                 <select class="form-control" name="to" id="to">
-                    <option value="buyers">Buyers</option>
-                    <option value="sellers">Sellers</option>
-                    <option value="all">All</option>
+                    <option value="buyers">{{ __('texts.buyers') }}</option>
+                    <option value="sellers">{{ __('texts.sellers') }}</option>
+                    <option value="all">{{ __('texts.all') }}</option>
                 </select>
             </div>
         </div>
@@ -31,6 +31,6 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Send</button>
+        <button type="submit" class="btn btn-primary">{{ __('texts.send') }}</button>
     </form>
 @endsection
