@@ -2,11 +2,7 @@
 
 namespace Grundmanis\Laracms\Modules\Newsletter\Providers;
 
-use Grundmanis\Laracms\Modules\Pages\Exception\Handler;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
-use Grundmanis\Laracms\Facades\MenuFacade;
 
 class NewsletterProvider extends ServiceProvider
 {
@@ -29,16 +25,6 @@ class NewsletterProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->addMenuRoutes();
+        //
     }
-
-    private function addMenuRoutes()
-    {
-        $menu = [
-            'admin.menu.newsletter' => 'laracms.newsletter',
-        ];
-
-        MenuFacade::addMenu($menu);
-    }
-
 }
